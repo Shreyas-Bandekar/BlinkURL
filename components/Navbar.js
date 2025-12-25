@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Navbar = () => {
@@ -7,10 +8,14 @@ const Navbar = () => {
         BlinkURL
       </div>
       <ul className='flex justify-center gap-6 items-center text-amber-50 font-semibold'>
-        <li>Home</li>
-        <li>About</li>
-        <li>Shorten</li>
-        <li>Contact Us</li>
+        <Link href="/"><li>Home</li></Link>
+        <Link href="/about"><li>About</li></Link>
+        <Link href="/shorten"><li>Shorten</li></Link>
+        <Link href="/contact"><li>Contact Us</li></Link>
+        <li>
+          <button>Try Now</button>
+          <button>Github</button>
+        </li>
       </ul>
     </nav>
   )
