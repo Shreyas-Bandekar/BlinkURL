@@ -13,7 +13,7 @@ const Navbar = () => {
         <Link href="/generate"><li>Shorten</li></Link>
         <Link href="/contact"><li>Contact Us</li></Link>
 
-        <li>
+        <li className='flex gap-4'>
           <Link href="/generate"><button>Try Now</button></Link>
           <Link href="/github"><button>Github</button></Link>
         </li>
