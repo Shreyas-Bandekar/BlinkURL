@@ -10,11 +10,12 @@ const Navbar = () => {
       <ul className='flex justify-center gap-6 items-center text-amber-50 font-semibold'>
         <Link href="/"><li>Home</li></Link>
         <Link href="/about"><li>About</li></Link>
-        <Link href="/shorten"><li>Shorten</li></Link>
+        <Link href="/generate"><li>Shorten</li></Link>
         <Link href="/contact"><li>Contact Us</li></Link>
+
         <li>
-          <button>Try Now</button>
-          <button>Github</button>
+          <Link href="/generate"><button>Try Now</button></Link>
+          <Link href="/github"><button>Github</button></Link>
         </li>
       </ul>
     </nav>
