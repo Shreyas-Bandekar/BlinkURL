@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main>  
       <section className="grid grid-cols-2 h-[50vh]">
-        <div className="bg-blue-200">
+        <div className="bg-blue-200 flex flex-col gap-4">
           <p>The best URL Shortener</p>
           <p>Shorten your long URLs quickly and easily.</p>
         </div>
