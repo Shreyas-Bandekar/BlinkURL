@@ -3,7 +3,7 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <nav className='h-16 bg-violet-400 flex justify-between px-7 items-center'>
+    <nav className='h-16 bg-cyan-700 flex justify-between px-7 items-center'>
       <div className='logo font-extrabold font-mono text-xl text-amber-50'>
         BlinkURL
       </div>
