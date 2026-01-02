@@ -2,14 +2,14 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <main>  
+    <main className='bg-cyan-100'>  
       <section className="grid grid-cols-2 h-[50vh]">
-        <div className="bg-blue-200 flex flex-col gap-4">
-          <p>The best URL Shortener</p>
+        <div className="flex flex-col gap-4 items-center justify-center">
+          <p className='text-2xl font-bold '>The best URL Shortener</p>
           <p>Shorten your long URLs quickly and easily.</p>
         </div>
-        <div className="bg-amber-200 flex justify-start relative">
-          <Image src={"/vector.jpg"} alt="URL Shortener" fill={true} />
+        <div className="flex justify-start relative">
+          <Image className='mix-blend-darken' src={"/vector.jpg"} alt="URL Shortener" fill={true} />
         </div>
       </section> 
     </main> 
