@@ -11,8 +11,8 @@ export default function Home() {
     <main className='bg-cyan-100'>  
       <section className="grid grid-cols-2 h-[50vh]">
         <div className="flex flex-col gap-4 items-center justify-center">
-          <p className={`text-4xl font-bold ${poppins.className}`}>The best URL Shortener</p>
-          <p>Shorten your long URLs quickly and easily.</p>
+          <p className={`text-3xl font-bold ${poppins.className}`}>BlinkURL- Short links in a blink!</p>
+          <p className='px-36'>BlinkURL helps you shorten long links quickly and easily. Just paste your URL and get a short link instantly — no login or signup needed. It’s perfect for sharing links on social media, messages, or anywhere else.</p>
         </div>
         <div className="flex justify-start relative">
           <Image className='mix-blend-darken' src={"/vector.jpg"} alt="URL Shortener" fill={true} />
