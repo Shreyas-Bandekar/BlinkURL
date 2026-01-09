@@ -15,8 +15,8 @@ export default function Home() {
           <p className='px-36'>BlinkURL helps you shorten long links quickly and easily. Just paste your URL and get a short link instantly — no login or signup needed. It’s perfect for sharing links on social media, messages, or anywhere else.</p>
 
           <div className='flex gap-4 justify-start'>
-            <Link href="/generate"><button className='bg-cyan-600 shadow-lg rounded-lg p-3 py-2 font-semibold border-2'>Try Now</button></Link>
-            <Link href="/github"><button className='bg-cyan-600 shadow-lg rounded-lg p-3 py-2 font-semibold border-2'>Github</button></Link>
+            <Link href="/generate"><button className='bg-cyan-600 text-white shadow-lg rounded-lg p-3 py-2 font-semibold '>Try Now</button></Link>
+            <Link href="/github"><button className='bg-cyan-600 text-white shadow-lg rounded-lg p-3 py-2 font-semibold '>Github</button></Link>
           </div>
         </div>
 
