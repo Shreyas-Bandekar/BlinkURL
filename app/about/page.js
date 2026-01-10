@@ -13,7 +13,7 @@ export default function About() {
 					<li>⚡ <span className="font-semibold">Instant short links</span> — just paste and go.</li>
 					<li>🌐 <span className="font-semibold">Works everywhere</span> — share on any platform.</li>
 				</ul>
-				<p className="text-center text-cyan-700 font-semibold">Made with ❤️ for the web community.</p>
+				<p className="text-center text-cyan-700 font-semibold">Made with ❤️</p>
 			</div>
 		</main>
 	);
