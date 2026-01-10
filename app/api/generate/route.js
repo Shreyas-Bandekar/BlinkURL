@@ -1,12 +1,33 @@
 import clientPromise from "@/lib/mongodb";
+import { NextResponse } from "next/server";
 
 export async function POST(request) {
-    let client = await clientPromise;
-    let db = client.db("blinkurl");
+  try {
+    const body = await request.json(); // ✅ await
+
+    const client = await clientPromise;
+    const db = client.db("blinkurl");
     const collection = db.collection("urls");
 
-    // Check if the short url exists
-    
+    const result = await collection.insertOne({ // ✅ correct method
+      url: body.url,
+      shorturl: body.shorturl,
+      createdAt: new Date()
+    });
 
-  return new Response('Generate API is working!');
+    return NextResponse.json({
+      success: true,
+      error: false,
+      message: "URL generated successfully"
+    }, { status: 200 });
+
+  } catch (error) {
+    console.error("API ERROR:", error);
+
+    return NextResponse.json({
+      success: false,
+      error: true,
+      message: error.message
+    }, { status: 500 });
+  }
 }
