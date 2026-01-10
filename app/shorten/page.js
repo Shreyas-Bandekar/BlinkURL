@@ -7,7 +7,7 @@ const Shorten = () => {
   const [generatedUrl, setGeneratedUrl] = useState(false);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-cyan-100 to-blue-200">
+    <div className="min-h-screen flex items-center justify-center bg-cyan-50 ">
       <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl">
         
         <h1 className="text-2xl font-bold text-center text-gray-800">
