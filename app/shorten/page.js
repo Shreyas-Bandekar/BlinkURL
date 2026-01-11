@@ -4,7 +4,36 @@ import React, { useState } from "react";
 const Shorten = () => {
   const [url, setUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
-  const [generatedUrl, setGeneratedUrl] = useState(false);
+  const [generatedUrl, setGeneratedUrl] = useState("");
+  const [error, setError] = useState("");
+
+  const handleGenerate = async () => {
+    setError("");
+    setGeneratedUrl("");
+    if (!url) {
+      setError("Please enter a long URL.");
+      return;
+    }
+    if (!shortUrl) {
+      setError("Please enter a custom short URL.");
+      return;
+    }
+    try {
+      const res = await fetch("/api/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url, shorturl: shortUrl })
+      });
+      const data = await res.json();
+      if (data.success) {
+        setGeneratedUrl(`${window.location.origin}/${shortUrl}`);
+      } else {
+        setError(data.message || "Failed to generate short URL.");
+      }
+    } catch (err) {
+      setError("Server error. Please try again.");
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-cyan-50 ">
@@ -37,16 +66,20 @@ const Shorten = () => {
           />
 
           <button
-            className="mt-2 w-full py-3 rounded-lg bg-green-500 text-white font-semibold 
-                       hover:bg-green-600 transition duration-200 active:scale-95"
-            onClick={() => setGeneratedUrl(true)}
+            className="mt-2 w-full py-3 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-600 transition duration-200 active:scale-95"
+            onClick={handleGenerate}
           >
             Generate Short Link
           </button>
 
+          {error && (
+            <div className="mt-4 p-3 bg-red-50 border border-red-300 rounded-lg text-center text-red-700">
+              {error}
+            </div>
+          )}
           {generatedUrl && (
             <div className="mt-4 p-3 bg-green-50 border border-green-300 rounded-lg text-center text-green-700">
-              🎉 Your short URL has been generated!
+              🎉 Your short URL: <a href={generatedUrl} className="underline text-cyan-700" target="_blank" rel="noopener noreferrer">{generatedUrl}</a>
             </div>
           )}
         </div>
