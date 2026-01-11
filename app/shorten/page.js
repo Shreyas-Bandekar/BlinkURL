@@ -1,89 +1,88 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const Shorten = () => {
   const [url, setUrl] = useState("");
-  const [shortUrl, setShortUrl] = useState("");
-  const [generatedUrl, setGeneratedUrl] = useState("");
-  const [error, setError] = useState("");
+  const [shorturl, setShorturl] = useState("");
+  const [generated, setGenerated] = useState("");
 
-  const handleGenerate = async () => {
-    setError("");
-    setGeneratedUrl("");
-    if (!url) {
-      setError("Please enter a long URL.");
+  const generate = async () => {
+    if (!url || !shorturl) {
+      alert("Please fill all fields");
       return;
     }
-    if (!shortUrl) {
-      setError("Please enter a custom short URL.");
-      return;
-    }
+
     try {
       const res = await fetch("/api/generate", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url, shorturl: shortUrl })
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ url, shorturl }),
       });
-      const data = await res.json();
-      if (data.success) {
-        setGeneratedUrl(`${window.location.origin}/${shortUrl}`);
-      } else {
-        setError(data.message || "Failed to generate short URL.");
+
+      // 🔥 IMPORTANT PART
+      if (!res.ok) {
+        const text = await res.text();
+        console.error("Server Error:", text);
+        alert("Server error. Check console.");
+        return;
       }
-    } catch (err) {
-      setError("Server error. Please try again.");
+
+      const result = await res.json();
+
+      setGenerated(
+        `${process.env.NEXT_PUBLIC_HOST || window.location.origin}/${shorturl}`
+      );
+      setUrl("");
+      setShorturl("");
+      alert(result.message);
+
+    } catch (error) {
+      console.error("Fetch error:", error);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-cyan-50 ">
-      <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl">
-        
-        <h1 className="text-2xl font-bold text-center text-gray-800">
-          Generate Short URL
-        </h1>
+    <div className="mx-auto max-w-lg bg-cyan-100 my-16 p-8 rounded-lg flex flex-col gap-4">
+      <h1 className="font-bold text-2xl">Generate your short URLs</h1>
 
-        <p className="text-sm text-gray-500 text-center mt-2">
-          Paste a long URL and get a short one instantly
-        </p>
+      <div className="flex flex-col gap-6">
+        <input
+          type="text"
+          value={url}
+          className="px-4 py-4 focus:outline-cyan-600 rounded-md"
+          placeholder="Enter your URL"
+          onChange={(e) => setUrl(e.target.value)}
+        />
 
-        <div className="flex flex-col gap-5 mt-8">
-          
-          <input
-            type="text"
-            value={url}
-            placeholder="Enter your long URL"
-            className="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-            onChange={(e) => setUrl(e.target.value)}
-          />
+        <input
+          type="text"
+          value={shorturl}
+          className="px-4 py-4 focus:outline-cyan-600 rounded-md"
+          placeholder="Enter your preferred short URL text"
+          onChange={(e) => setShorturl(e.target.value)}
+        />
 
-          <input
-            type="text"
-            value={shortUrl}
-            placeholder="Enter custom short URL (optional)"
-            className="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-            onChange={(e) => setShortUrl(e.target.value)}
-          />
-
-          <button
-            className="mt-2 w-full py-3 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-600 transition duration-200 active:scale-95"
-            onClick={handleGenerate}
-          >
-            Generate Short Link
-          </button>
-
-          {error && (
-            <div className="mt-4 p-3 bg-red-50 border border-red-300 rounded-lg text-center text-red-700">
-              {error}
-            </div>
-          )}
-          {generatedUrl && (
-            <div className="mt-4 p-3 bg-green-50 border border-green-300 rounded-lg text-center text-green-700">
-              🎉 Your short URL: <a href={generatedUrl} className="underline text-cyan-700" target="_blank" rel="noopener noreferrer">{generatedUrl}</a>
-            </div>
-          )}
-        </div>
+        <button
+          onClick={generate}
+          className="bg-cyan-500 rounded-lg shadow-lg p-3 py-1 my-3 font-bold text-white"
+        >
+          Generate
+        </button>
       </div>
+
+      {generated && (
+        <>
+          <span className="font-bold text-lg">Your Link</span>
+          <code>
+            <Link target="_blank" href={generated}>
+              {generated}
+            </Link>
+          </code>
+        </>
+      )}
     </div>
   );
 };
