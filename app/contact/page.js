@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Contact() {
 	return (
-		<main className="min-h-[80vh] flex items-center justify-center bg-cyan-50 py-10">
-			<div className="max-w-lg w-full bg-white rounded-2xl shadow-xl p-8 flex flex-col gap-6">
+		<main className="min-h-[80vh] flex items-center justify-center bg-cyan-50 py-6 sm:py-10 px-2">
+			<div className="w-full max-w-lg bg-white rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col gap-4 sm:gap-6">
 				<h1 className="text-3xl font-bold text-cyan-700 text-center">Contact Us</h1>
 				<p className="text-gray-700 text-center">Have questions, feedback, or want to report an issue? We’d love to hear from you!</p>
 				<form className="flex flex-col gap-4">

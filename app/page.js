@@ -3,10 +3,9 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-cyan-50 flex flex-col items-center justify-center py-12 md:py-20">
-      
-      <section className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-20 items-center px-4 md:px-12">
-        <div className="flex flex-col gap-8 items-start justify-center animate-fade-in md:pl-8">
+    <main className="min-h-screen bg-cyan-50 flex flex-col items-center justify-center py-8 sm:py-12 md:py-20 px-2">
+      <section className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 lg:gap-20 items-center px-2 sm:px-4 md:px-12">
+        <div className="flex flex-col gap-6 sm:gap-8 items-start justify-center animate-fade-in md:pl-8">
           <h1 className="text-2xl md:text-4xl font-semibold text-cyan-800 leading-tight tracking-tight">
             BlinkURL <span className="text-cyan-500">— Short links in a blink!</span>
           </h1>
