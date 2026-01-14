@@ -14,5 +14,16 @@ A simple, privacy-first URL shortener built with Next.js, React, and MongoDB.
 3. Start: `npm run dev`
 4. Go to `/shorten` to create and copy short URLs
 
+## Environment Variables Setup
+
+Create a `.env.local` file in the project root with the following variables:
+
+```
+MONGODB_URI=your_mongodb_connection_string
+NEXT_PUBLIC_HOST=https://your-domain.com  # e.g. http://localhost:3000 for local
+```
+
+Replace `your_mongodb_connection_string` with your actual MongoDB URI. Set `NEXT_PUBLIC_HOST` to your deployed domain or `http://localhost:3000` for local development.
+
 ---
 Made with ❤️ by BlinkURL.
