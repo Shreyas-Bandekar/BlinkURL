@@ -47,10 +47,10 @@ const Navbar = () => {
         </li>
         <li className="flex flex-col md:flex-row gap-2 md:gap-4 w-full md:w-auto mt-2 md:mt-0">
           <Link href="/shorten" onClick={() => setMenuOpen(false)}>
-            <button className="bg-cyan-600 hover:bg-cyan-800 shadow-lg rounded-lg px-4 py-2 md:px-6 md:py-2 font-semibold border-2 border-cyan-800 w-full md:w-auto transition block md:inline-block text-base md:text-base">Try Now</button>
+            <button className="bg-cyan-600 hover:bg-cyan-800 shadow-lg rounded-lg px-4 py-2 md:px-6 md:py-2 font-semibold border-2 border-cyan-800 transition block md:inline-block text-base md:text-base w-auto min-w-[120px] mx-auto">Try Now</button>
           </Link>
           <Link href="/github" onClick={() => setMenuOpen(false)}>
-            <button className="bg-cyan-600 hover:bg-cyan-800 shadow-lg rounded-lg px-4 py-2 md:px-6 md:py-2 font-semibold border-2 border-cyan-800 w-full md:w-auto transition block md:inline-block text-base md:text-base">Github</button>
+            <button className="bg-cyan-600 hover:bg-cyan-800 shadow-lg rounded-lg px-4 py-2 md:px-6 md:py-2 font-semibold border-2 border-cyan-800 transition block md:inline-block text-base md:text-base w-auto min-w-[120px] mx-auto">Github</button>
           </Link>
         </li>
       </ul>
