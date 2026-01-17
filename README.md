@@ -1,6 +1,6 @@
 # BlinkURL
 
-A simple, privacy-first URL shortener built with Next.js, React, and MongoDB.
+A simple, privacy-first URL shortener built with Next.js, React, Tailwind, and MongoDB.
 
 ## Features
 - Responsive design
