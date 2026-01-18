@@ -1,6 +1,6 @@
 # BlinkURL
 
-A simple, privacy-first URL shortener built with Next.js, React, and MongoDB.
+A simple, privacy-first URL shortener built with Next.js, React, Tailwind, and MongoDB.
 
 ## Features
 - Responsive design
@@ -12,7 +12,7 @@ A simple, privacy-first URL shortener built with Next.js, React, and MongoDB.
 1. Install dependencies: `npm install`
 2. Set up `.env.local` with your MongoDB URI
 3. Start: `npm run dev`
-4. Go to `/shorten` to create and copy short URLs
+4. Go to `/shorten` to create and copy short URL
 
 ## Environment Variables Setup
 
