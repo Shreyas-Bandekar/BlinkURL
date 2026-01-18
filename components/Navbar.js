@@ -47,13 +47,13 @@ const Navbar = () => {
         </li>
         <li className="flex flex-col md:flex-row gap-2 md:gap-4 w-full md:w-auto mt-2 md:mt-0">
           <Link href="/shorten" onClick={() => setMenuOpen(false)}>
-            <button className="bg-cyan-600 hover:bg-cyan-800 shadow-lg rounded-lg px-4 py-2 md:px-6 md:py-2 font-semibold border-2 border-cyan-800 transition block md:inline-block text-base md:text-base w-auto min-w-[120px] mx-auto">Try Now</button>
+            <button className="bg-cyan-600 hover:bg-cyan-800 shadow-lg rounded-lg px-4 py-2 md:px-6 md:py-2 font-semibold border-2 border-cyan-800 transition block md:inline-block text-base md:text-base w-auto min-w-30 mx-auto">Try Now</button>
           </Link>
           <Link href="/login" onClick={() => setMenuOpen(false)}>
-            <button className="bg-blue-600 hover:bg-blue-800 shadow-lg rounded-lg px-4 py-2 md:px-6 md:py-2 font-semibold border-2 border-blue-800 transition block md:inline-block text-base md:text-base w-auto min-w-[120px] mx-auto">Login</button>
+            <button className="bg-blue-600 hover:bg-blue-800 shadow-lg rounded-lg px-4 py-2 md:px-6 md:py-2 font-semibold border-2 border-blue-800 transition block md:inline-block text-base md:text-base w-auto min-w-30 mx-auto">Login</button>
           </Link>
           <Link href="/signup" onClick={() => setMenuOpen(false)}>
-            <button className="bg-green-600 hover:bg-green-800 shadow-lg rounded-lg px-4 py-2 md:px-6 md:py-2 font-semibold border-2 border-green-800 transition block md:inline-block text-base md:text-base w-auto min-w-[120px] mx-auto">Sign Up</button>
+            <button className="bg-green-600 hover:bg-green-800 shadow-lg rounded-lg px-4 py-2 md:px-6 md:py-2 font-semibold border-2 border-green-800 transition block md:inline-block text-base md:text-base w-auto min-w-30 mx-auto">Sign Up</button>
           </Link>
         </li>
       </ul>
